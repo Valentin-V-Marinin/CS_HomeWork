@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.tabs.description": "${task}",
+    "terminal.integrated.tabs.title": "${task}"
+}

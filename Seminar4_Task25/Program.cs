@@ -21,4 +21,7 @@ while (count < ArrNumb[1])
     count++;
 }
 
-Console.WriteLine(result);
+if (ArrNumb[0] == 0  &  ArrNumb[1] == 0)
+    { Console.WriteLine("Результат не определён.");    }
+else
+    { Console.WriteLine($"А({ArrNumb[0]}) в степени В({ArrNumb[1]}) равно: " + result);}

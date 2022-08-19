@@ -1,4 +1,5 @@
 {
-    "terminal.integrated.tabs.description": "${task}",
-    "terminal.integrated.tabs.title": "${task}"
+    "terminal.integrated.tabs.description": "${cwdFolder}",
+    "terminal.integrated.tabs.title": "${cwd}",
+    "terminal.integrated.tabs.showActiveTerminal": "${always}"
 }

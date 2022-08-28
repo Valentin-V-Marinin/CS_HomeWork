@@ -32,7 +32,7 @@ for (int i = 0; i < array.GetLength(0); i++)
     Console.WriteLine();
 }
 
-// резьтирующая линия
+// разделительная линия
 string s = new String('-', array.GetLength(1)*columnWidth);
 Console.WriteLine(s);
 

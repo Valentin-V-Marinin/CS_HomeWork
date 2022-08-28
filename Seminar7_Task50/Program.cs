@@ -1,6 +1,6 @@
 ﻿// Домашнее задание
 // Семинар 7, Задача 50
-// Приём на вход позиции элемента в двумерном массиве, и возвращает значение этого элемента 
+// Приём на вход позиции элемента в двумерном массиве, и возврат значения этого элемента 
 //   или же указание, что такого элемента нет.
 
 Console.WriteLine("Введите количество строк массива:");
@@ -18,11 +18,11 @@ for (int i = 0; i < numberRow; i++)
     }
 }
 
-// Ввод индекса в формате 111 для матрицы 12х12 будет неоднозначен
+// Ввод индекса в формате 111 начиная с матрицы 12х12 будет неоднозначен,
 // поэтому вводим индекс через слэш 
 
 Console.WriteLine("Введите индекс элемента двумерного массива через слэш (строка/столбец):");
-string index = Console.ReadLine();
+string index = string.Empty; index = Console.ReadLine();
 string [] indexArray = index.Split("/");
 int indexRow = Convert.ToInt32(indexArray[0]);
 int indexColumn = Convert.ToInt32(indexArray[1]);
@@ -39,4 +39,4 @@ for (int i = 0; i < array.GetLength(0); i++)
 if (indexRow >= array.GetLength(0) || indexColumn >= array.GetLength(1))
     { Console.WriteLine($"Введённый индекс {index} за пределами массива."); }
 else
-    { Console.WriteLine($"Введённый индекс {index} имеет значение {array[indexRow, indexColumn]}"); }
+    { Console.WriteLine($"Элемент массива с индексом {index} имеет значение {array[indexRow, indexColumn]}"); }

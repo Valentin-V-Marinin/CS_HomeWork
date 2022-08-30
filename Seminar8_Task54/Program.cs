@@ -18,7 +18,7 @@ int [,]  FillArray(int numberRow, int numberColumn, int leftRange = 0, int right
     {
         for (int j = 0; j < numberCol; j++)
         {
-            array[i,j] = rand.Next(-99,100);    
+            array[i,j] = rand.Next(leftRange, rightRange);    
         }
     }
     return array;

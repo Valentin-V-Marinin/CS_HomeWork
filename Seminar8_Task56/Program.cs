@@ -53,7 +53,6 @@ void ArrayPrintOut(int [,] array)
                 result.idxRowMin = i+1;
                 result.idxList = Convert.ToString(i+1);
                 result.count = 1;
-                Console.WriteLine("i=0      " + i + " " + result.count + " " + result.idxList + " " + result.idxRowMin + " " + result.sumMinimum);
             }
         if (i > 0)
             {
@@ -61,7 +60,6 @@ void ArrayPrintOut(int [,] array)
                 {
                     result.idxList += ", " + Convert.ToString(i+1);
                     result.count++;
-                    Console.WriteLine("i>0 =min " + i + " " + result.count + " " + result.idxList + " " + result.idxRowMin + " " + result.sumMinimum);
                 } 
                 if (sum[i] < result.sumMinimum) 
                 {
@@ -69,7 +67,6 @@ void ArrayPrintOut(int [,] array)
                     result.idxRowMin = i+1;
                     result.idxList = Convert.ToString(i+1);
                     result.count = 1;
-                    Console.WriteLine("i>0 <min " + i + " " + result.count + " " + result.idxList + " " + result.idxRowMin + " " + result.sumMinimum);
                 } 
             }
     }
@@ -87,6 +84,4 @@ else
     { Console.WriteLine($"Строки №№ {resultFunc.idxList} имеют минимальную сумму элементов ({resultFunc.sumMinimum})."); }
 
 Console.WriteLine("Суммы строк в порядке возрастания номера строки: " + string.Join(", ", resultFunc.sum));
-Console.WriteLine();
-Console.WriteLine(resultFunc.count + " " + resultFunc.idxList);
 Console.WriteLine();

@@ -62,7 +62,7 @@ int[,] SortArray(int [,] array)
     return array; 
 }
 
-sourceArray = FillArray(numberRow, numberCol, -99, 100);
+sourceArray = FillArray(numberRow, numberCol, -199, 200);
 ArrayPrintOut(sourceArray);
 Console.WriteLine();
 ArrayPrintOut(SortArray(sourceArray));

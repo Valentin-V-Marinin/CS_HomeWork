@@ -13,25 +13,25 @@ string [] matrix2str = matrixSecond.Split("/");
 int [,] matrix1 = new int [Convert.ToInt32(matrix1str[0]), Convert.ToInt32(matrix1str[1])];
 int [,] matrix2 = new int [Convert.ToInt32(matrix2str[0]), Convert.ToInt32(matrix2str[1])];
 
-// int [,]  FillArray(int numberRow, int numberCol, int leftRange = 0, int rightRange = 10)
-// {
-//     int [,] array = new int [numberRow, numberCol];
-//     Random rand = new Random();
 
-//     for (int i = 0; i < numberRow; i++)
-//     {
-//         for (int j = 0; j < numberCol; j++)
-//         {
-//             array[i,j] = rand.Next(leftRange,rightRange);    
-//         }
-//     }
-//     return array;
-// }
-
-int [,]  FillArray(int numberRow, int numberCol, int leftRange = 0, int rightRange = 10)
+int [,]  FillArrayRandom(int numberRow, int numberCol, int leftRange = 0, int rightRange = 10)
 {
     int [,] array = new int [numberRow, numberCol];
     Random rand = new Random();
+
+    for (int i = 0; i < numberRow; i++)
+    {
+        for (int j = 0; j < numberCol; j++)
+        {
+            array[i,j] = rand.Next(leftRange,rightRange);    
+        }
+    }
+    return array;
+}
+
+int [,]  FillArrayHand(int numberRow, int numberCol, int leftRange = 0, int rightRange = 10)
+{
+    int [,] array = new int [numberRow, numberCol];
 
     for (int i = 0; i < numberRow; i++)
     {
@@ -78,14 +78,11 @@ int [,]  MultiplicateMatrix(int [,] mtrx1, int [,] mtrx2)
         for (int j = 0; j < mtrx1.GetLength(0); j++)
         {
             auxArr[j,i] = mtrx2[idxRow, idxCol];
-            //Console.WriteLine(count+ " Row-"+j +" Col-" +i+ " idxRow-"+idxRow +" idxCol-"+ idxCol);
         }
         count++;
         if (count%2 == 0) {idxRow = 0; idxCol++;} 
         else idxRow = 1; 
     }
-
-    ArrayPrintOut(auxArr); Console.WriteLine();
 
     idx = 0;
     for (int i = 0; i < result.GetLength(0); i++)
@@ -93,7 +90,6 @@ int [,]  MultiplicateMatrix(int [,] mtrx1, int [,] mtrx2)
         for (int j = 0; j < result.GetLength(1)*4; j = j + 4)
         {
             result[i,idx] = auxArr[i,j]*auxArr[i,j+1] + auxArr[i,j+2]*auxArr[i,j+3];
-            Console.WriteLine($"result[{i},{idx}]= {auxArr[i,j]}*{auxArr[i,j+1]} + {auxArr[i,j+2]}*{auxArr[i,j+3]}");
             idx++;
         }
         idx = 0;
@@ -102,11 +98,35 @@ int [,]  MultiplicateMatrix(int [,] mtrx1, int [,] mtrx2)
     return result;
 }
 
+if (matrix1.GetLength(1) == matrix2.GetLength(0))
+{
+    Console.WriteLine("Выберите способ ввода перемножаемых матриц");
+    Console.WriteLine("1 - ввод с клавиатуры");
+    Console.WriteLine("2 - заполнение случайными числами");
+    int hand = Convert.ToInt32(Console.ReadLine());
+    Console.Clear();
 
-matrix1 = FillArray(matrix1.GetLength(0), matrix1.GetLength(1),-10,11);
-matrix2 = FillArray(matrix2.GetLength(0), matrix2.GetLength(1),-10,11);
+    if (hand == 1)
+    {
+        matrix1 = FillArrayHand(matrix1.GetLength(0), matrix1.GetLength(1),-10,11);
+        matrix2 = FillArrayHand(matrix2.GetLength(0), matrix2.GetLength(1),-10,11);
+    }
+    else
+    {
+        matrix1 = FillArrayRandom(matrix1.GetLength(0), matrix1.GetLength(1),-10,11);
+        matrix2 = FillArrayRandom(matrix2.GetLength(0), matrix2.GetLength(1),-10,11);
+    }
 
-ArrayPrintOut(MultiplicateMatrix(matrix1, matrix2));
-Console.WriteLine();
-ArrayPrintOut(matrix1); Console.WriteLine();
-ArrayPrintOut(matrix2); Console.WriteLine();
+    Console.WriteLine("Исходная матрица №1:");
+    ArrayPrintOut(matrix1); 
+    Console.WriteLine("Исходная матрица №2:");
+    ArrayPrintOut(matrix2); 
+    Console.WriteLine("Результат умножения матриц:");
+    ArrayPrintOut(MultiplicateMatrix(matrix1, matrix2));
+    Console.WriteLine();
+}
+else
+{
+    Console.WriteLine("Условие перемножения матриц не соблюдено.");
+    Console.WriteLine("Число столбцов первой матрицы не равно числу строк второй матрицы.");
+}

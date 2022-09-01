@@ -41,6 +41,5 @@ void Array3dPrintOut(int [,,] array)
     }
 }
 
-//array3d = FillArray3d(2,2,2,-99,100);
 Array3dPrintOut(FillArray3d(2,2,2,-99,100));
 Console.WriteLine();

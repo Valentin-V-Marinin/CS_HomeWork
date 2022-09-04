@@ -27,7 +27,6 @@ int Ackermann(int m, int n)
                 if (m==1 && n==1) {m=0; n=2;}
             }
     }
-    Console.WriteLine("Финал  m="+m + "  n="+n);
     return (m + n);
 }
 

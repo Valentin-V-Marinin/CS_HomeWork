@@ -24,4 +24,4 @@ int Ackermann(int m, int n)
     return n;
 }
 
-
+Console.WriteLine(Ackermann(m,n));
